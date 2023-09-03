@@ -33,7 +33,6 @@ const form = document.querySelector(".form");
         Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
 
-    promises.push(promise);
+    promise.push(promise);
   };
 
-  });
