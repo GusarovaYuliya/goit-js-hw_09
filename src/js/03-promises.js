@@ -21,18 +21,29 @@ const form = document.querySelector(".form");
     });
   }
   
-  for (let i = 0; i < amountInput; i++) {
-    const delay = delayInput + i * stepInput;
-    const promise = createPromise(i + 1, delay);
+const submitHandler = e => {
+  e.preventDefault();
 
-    promise
-      .then(({ position, delay }) => {
+  const {
+    elements: { delay, step, amount },
+  } = e.currentTarget;
+
+  delayInput = +(delay.value);
+  stepInput = + (step.value);
+  amountInput = +(amount.value);
+
+  for (let i = 1; i <= amountInput; i+= 1) {
+    createPromise(i, delayInput)
+    .then(({ position, delay }) => {
         Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
         Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
 
-    promise.push(promise);
+    delayInput += stepInput;
+  }
+      
   };
 
+form.addEventListener('submit', submitHandler);
