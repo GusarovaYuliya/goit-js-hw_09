@@ -1,3 +1,5 @@
+import '../css/common.css';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Notiflix from 'notiflix';
 
 const form = document.querySelector(".form");
@@ -28,17 +30,19 @@ const submitHandler = e => {
     elements: { delay, step, amount },
   } = e.currentTarget;
 
-  delayInput = +(delay.value);
-  stepInput = +(step.value);
-  amountInput = +(amount.value);
+  // delayInput += (delay.value);
+  // stepInput += (step.value);
+  // amountInput += (amount.value);
 
   for (let i = 1; i <= amountInput; i+= 1) {
     createPromise(i, delayInput)
     .then(({ position, delay }) => {
-        Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+      Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+      // console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
         Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
+        // console.log(`❌ Rejected promise ${position} in ${delay}ms`);
       });
 
     delayInput += stepInput;
@@ -50,4 +54,3 @@ form.addEventListener('submit', submitHandler);
 
 
 
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
