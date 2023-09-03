@@ -1,21 +1,18 @@
-// all modules
+import '../css/common.css';
 import Notiflix from 'notiflix';
 
 const form = document.querySelector(".form");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const delayInput = document.querySelector(".delay");
-  const stepInput = document.querySelector(".step");
-  const amountInput = document.querySelector(".amount");
-  const submitButton = document.querySelector(".submit");
+  const delayInput = null;
+  const stepInput = null;
+  const amountInput = null;
+  
 
   function createPromise(position, delay) {
     return new Promise((resolve, reject) => {
-      const shouldResolve = Math.random() > 0.3;
-
+      
       setTimeout(() => {
+        const shouldResolve = Math.random() > 0.3;
         if (shouldResolve) {
           resolve({ position, delay });
         } else {
