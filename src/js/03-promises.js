@@ -1,5 +1,4 @@
-// import Notiflix from 'notiflix';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import Notiflix from 'notiflix';
 
 const form = document.querySelector(".form");
 
@@ -48,3 +47,7 @@ const submitHandler = e => {
   };
 
 form.addEventListener('submit', submitHandler);
+
+
+
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
