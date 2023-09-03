@@ -29,9 +29,9 @@ const submitHandler = e => {
     elements: { delay, step, amount },
   } = e.currentTarget;
 
-  delayInput = + (delay.value);
-  stepInput = + (step.value);
-  amountInput = + (amount.value);
+  delayInput = +(delay.value);
+  stepInput = +(step.value);
+  amountInput = +(amount.value);
 
   for (let i = 1; i <= amountInput; i+= 1) {
     createPromise(i, delayInput)
