@@ -1,4 +1,3 @@
-import '../css/common.css';
 import Notiflix from 'notiflix';
 
 const form = document.querySelector(".form");
