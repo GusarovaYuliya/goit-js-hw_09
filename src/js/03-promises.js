@@ -1,4 +1,5 @@
-import Notiflix from 'notiflix';
+// import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const form = document.querySelector(".form");
 
@@ -28,9 +29,9 @@ const submitHandler = e => {
     elements: { delay, step, amount },
   } = e.currentTarget;
 
-  delayInput = +(delay.value);
+  delayInput = + (delay.value);
   stepInput = + (step.value);
-  amountInput = +(amount.value);
+  amountInput = + (amount.value);
 
   for (let i = 1; i <= amountInput; i+= 1) {
     createPromise(i, delayInput)
