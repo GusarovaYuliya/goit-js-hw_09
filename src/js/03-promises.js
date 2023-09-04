@@ -11,9 +11,8 @@ const form = document.querySelector(".form");
 
   function createPromise(position, delay) {
     return new Promise((resolve, reject) => {
-      
+      const shouldResolve = Math.random() > 0.3;
       setTimeout(() => {
-        const shouldResolve = Math.random() > 0.3;
         if (shouldResolve) {
           resolve({ position, delay });
         } else {
@@ -30,22 +29,21 @@ const submitHandler = e => {
     elements: { delay, step, amount },
   } = e.currentTarget;
 
-  // delayInput += (delay.value);
-  // stepInput += (step.value);
-  // amountInput += (amount.value);
+  const value = delay.value + step.value;
 
-  for (let i = 1; i <= amountInput; i+= 1) {
-    createPromise(i, delayInput)
+  for (let i = 1; i <= amount.value; i+= 1) {
+    createPromise(i, value)
     .then(({ position, delay }) => {
       Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-      // console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+     
+      
       })
       .catch(({ position, delay }) => {
         Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
-        // console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+       
+        
       });
 
-    delayInput += stepInput;
   }
       
   };
