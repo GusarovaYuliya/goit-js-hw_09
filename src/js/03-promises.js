@@ -1,5 +1,3 @@
-import '../css/common.css';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Notiflix from 'notiflix';
 
 const form = document.querySelector(".form");
@@ -8,7 +6,6 @@ const form = document.querySelector(".form");
   const stepInput = null;
   const amountInput = null;
   
-
   function createPromise(position, delay) {
     return new Promise((resolve, reject) => {
       const shouldResolve = Math.random() > 0.3;
@@ -35,17 +32,11 @@ const submitHandler = e => {
     createPromise(i, value)
     .then(({ position, delay }) => {
       Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-     
-      
       })
       .catch(({ position, delay }) => {
         Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
-       
-        
       });
-
-  }
-      
+  }  
   };
 
 form.addEventListener('submit', submitHandler);
